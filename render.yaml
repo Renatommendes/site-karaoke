@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: alterar-tom
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn youtube_to_audio.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: youtube_to_audio.settings
+      - key: SECRET_KEY
+        value: sua-secret-key
+      - key: DEBUG
+        value: 'False'
