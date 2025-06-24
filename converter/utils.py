@@ -8,18 +8,17 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Informando ffmpeg e ffprobe explicitamente para pydub (usado apenas em baixar_audio)
+# Informando ffmpeg e ffprobe para pydub
 AudioSegment.converter = os.path.join(BASE_DIR, "bin", "ffmpeg")
 AudioSegment.ffprobe = os.path.join(BASE_DIR, "bin", "ffprobe")
 
-
 def baixar_audio(url):
     ydl_opts = {
-        'ffmpeg_location': 'C:/ffmpeg/bin',  # Diretório do ffmpeg
+        'ffmpeg_location': os.path.join(BASE_DIR, "bin", "ffmpeg"),  # ✔️ Corrigido para Render
         'format': 'bestaudio/best',
         'outtmpl': 'media/%(title)s.%(ext)s',
         'noplaylist': True,
+        'cookiefile': os.path.join(BASE_DIR, 'converter', 'cookies.txt'),  # ✔️ Caminho absoluto
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
