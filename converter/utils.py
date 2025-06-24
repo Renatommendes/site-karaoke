@@ -4,6 +4,10 @@ from yt_dlp import YoutubeDL
 from pydub import AudioSegment
 import librosa
 import soundfile as sf
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 # Informando ffmpeg e ffprobe explicitamente para pydub (usado apenas em baixar_audio)
 AudioSegment.converter = os.path.join(BASE_DIR, "bin", "ffmpeg")
