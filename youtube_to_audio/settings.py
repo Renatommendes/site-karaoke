@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!knpn83whs6tmdr_t%oxa1rtwra0bvq4@gdj@$&cbp#w3vlxxz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['alterar-tom.onrender.com']
+ALLOWED_HOSTS = ['site-karaoke.onrender.com']
 
 
 # Application definition
